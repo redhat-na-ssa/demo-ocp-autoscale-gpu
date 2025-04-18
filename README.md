@@ -21,6 +21,9 @@ NOTE: The node sizes below are the **recommended minimum** to select for provisi
 
 ## Quickstart
 
+NOTE: If you have manually installed operators through the OpenShift web console before running this automation you may have duplicate operator groups. 
+Remove any duplicate operator groups ending in `-xxxxx`
+
 ```sh
 until oc apply -k components; do : ; done
 ```
