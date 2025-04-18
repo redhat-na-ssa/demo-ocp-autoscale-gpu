@@ -5,7 +5,4 @@ components:
   - autoscale-gpu
   - branding
   - operators
-  - validate-gpu-autoscale
-
-resources:
-  - namespace.yaml
+  # - validate-gpu-autoscale

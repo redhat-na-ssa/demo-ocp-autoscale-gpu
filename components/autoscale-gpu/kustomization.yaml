@@ -10,3 +10,4 @@ resources:
   - cuda-a10.yaml
   - cuda-l4.yaml
   - l4-autoscaler.yaml
+  - namespace.yaml
