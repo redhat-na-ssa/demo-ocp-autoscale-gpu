@@ -3,4 +3,4 @@ kind: Component
 
 resources:
 - subscription.yaml
-- web-terminal-tooling.yaml
+# - web-terminal-tooling.yaml
