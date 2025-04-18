@@ -2,9 +2,24 @@
 
 Show how to autoscale GPU resources in AWS using an OpenShift MachineSet
 
-## Prerequisites
+## Prerequisites - Get a cluster
 
-- OpenShift 4.16+ in AWS
+- OpenShift 4.14+
+  - role: `cluster-admin` - for all [demo](demos) or [cluster](clusters) configs
+  - role: `self-provisioner` - for namespaced components
+
+[Red Hat Demo Platform](https://demo.redhat.com) Options (Tested)
+
+NOTE: The node sizes below are the **recommended minimum** to select for provisioning
+
+- <a href="https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.sandbox-ocp.prod&utm_source=webapp&utm_medium=share-link" target="_blank">AWS with OpenShift Open Environment</a>
+  - 1 x Control Plane - `m6a.2xlarge`
+  - 0 x Workers - `m6a.2xlarge`
+- <a href="https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-single-node.prod&utm_source=webapp&utm_medium=share-link" target="_blank">One Node OpenShift</a>
+  - 1 x Control Plane - `m6a.2xlarge`
+- <a href="https://demo.redhat.com/catalog?item=babylon-catalog-prod/community-content.com-mlops-wksp.prod&utm_source=webapp&utm_medium=share-link" target="_blank">MLOps Demo: Data Science & Edge Practice</a>
+
+## Quickstart
 
 ```sh
 until oc apply -k components; do : ; done
