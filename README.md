@@ -1,4 +1,4 @@
-# demo-ocp-autoscale-gpus
+# Demo OpenShift autoscaling with gpu machine sets
 
 Show how to autoscale GPU resources in AWS using an OpenShift MachineSet
 
