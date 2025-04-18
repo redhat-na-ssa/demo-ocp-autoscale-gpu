@@ -4,7 +4,7 @@ Show how to autoscale GPU resources in AWS using an OpenShift MachineSet
 
 ## Quickstart
 
-NOTE: If you have manually installed operators through the OpenShift web console before running this automation you may have duplicate operator groups. 
+NOTE: If you have manually installed operators through the OpenShift web console before running this automation you may have duplicate operator groups.
 Remove any duplicate operator groups ending in `-xxxxx`
 
 Run directly from remote
@@ -28,9 +28,8 @@ oc -n openshift-machine-api \
 
 ## Prerequisites - Get a cluster
 
-- OpenShift 4.14+
-  - role: `cluster-admin` - for all [demo](demos) or [cluster](clusters) configs
-  - role: `self-provisioner` - for namespaced components
+- OpenShift 4.16+
+  - role: `cluster-admin`
 
 [Red Hat Demo Platform](https://demo.redhat.com) Options (Tested)
 
@@ -53,3 +52,7 @@ The following cli tools are required:
 - `kustomize` (optional) - Download [mac](https://formulae.brew.sh/formula/kustomize), [linux](https://github.com/kubernetes-sigs/kustomize/releases)
 
 NOTE: `bash`, `git`, and `oc` are available in the [OpenShift Web Terminal](https://docs.openshift.com/container-platform/4.12/web_console/web_terminal/installing-web-terminal.html)
+
+## Manual Steps
+
+[Manual steps for configuring a machineset for GPUs](components/autoscale-gpu/README.md)
