@@ -16,7 +16,7 @@ spec:
     - type: nvidia-l4
       min: 0
       max: 4
-    - type: nvidia-a10g
+    - type: nvidia-a10
       min: 0
       max: 4
   logVerbosity: 4 

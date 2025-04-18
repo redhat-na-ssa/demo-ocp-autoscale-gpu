@@ -6,3 +6,6 @@ components:
   - branding
   - operators
   - validate-gpu-autoscale
+
+resources:
+  - namespace.yaml

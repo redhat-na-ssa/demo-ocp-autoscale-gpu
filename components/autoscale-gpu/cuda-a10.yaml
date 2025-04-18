@@ -10,7 +10,7 @@ spec:
     operator: "Exists"
     effect: "NoSchedule"
   nodeSelector:
-    cluster-api/accelerator: nvidia-a10g
+    cluster-api/accelerator: nvidia-a10
   containers:
   - name: cuda-vectoradd
     image: "nvcr.io/nvidia/k8s/cuda-sample:vectoradd-cuda12.5.0-ubi8"
