@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+components:
+  - aws-gpu-machineset
+
+resources:
+  - a10-autoscaler.yaml
+  - cluster-autoscaler.yaml
+  - cuda-a10.yaml
+  - cuda-l4.yaml
+  - l4-autoscaler.yaml
