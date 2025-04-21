@@ -8,6 +8,7 @@
 # ocp_aws_machineset_clone_worker
 # ocp_aws_machineset_fix_storage
 # ocp_machineset_create_autoscale
+# ocp_machineset_patch_accelerator
 # ocp_machineset_taint_gpu
 # '
 
@@ -176,4 +177,17 @@ ocp_machineset_taint_gpu(){
   oc -n openshift-machine-api \
     patch "${MACHINE_SET}" \
     --type=merge --patch '{"spec":{"template":{"spec":{"taints":[{"key":"nvidia.com/gpu","value":"","effect":"NoSchedule"}]}}}}'
+}
+
+ocp_machineset_patch_accelerator(){
+  MACHINE_SET_NAME=${1:-gpu}
+  LABEL=${2:-nvidia-gpu}
+
+  oc -n openshift-machine-api \
+    patch machineset "${MACHINE_SET_NAME}" \
+    --type=merge --patch '{"spec":{"template":{"spec":{"metadata":{"labels":{"cluster-api/accelerator":"'"${LABEL}"'"}}}}}}'
+  
+  oc -n openshift-machine-api \
+    patch machineset "${MACHINE_SET_NAME}" \
+    --type=merge --patch '{"spec":{"template":{"spec":{"metadata":{"labels":{"node-role.kubernetes.io/gpu":""}}}}}}'
 }
