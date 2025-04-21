@@ -18,10 +18,10 @@ spec:
             #!/bin/bash
 
             echo "
-            GIT_REPO=https://github.com/adrezni/cluster-jump-start.git
+            GIT_REPO=https://github.com/redhat-na-ssa/demo-ocp-autoscale-gpus
 
-            [ -e ~/cluster-jump-start ] || git clone \${GIT_REPO}
-            [ -e ~/cluster-jump-start ] && cd ~/cluster-jump-start
+            [ -e ~/demo-ocp-autoscale-gpus ] || git clone \${GIT_REPO}
+            [ -e ~/demo-ocp-autoscale-gpus ] && cd ~/demo-ocp-autoscale-gpus
 
             " >> /home/user/.bashrc
 

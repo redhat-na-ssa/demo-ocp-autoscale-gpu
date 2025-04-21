@@ -13,6 +13,11 @@ Run directly from remote
 until oc apply -k https://github.com/redhat-na-ssa/demo-ocp-autoscale-gpu/components; do : ; done
 ```
 
+```sh
+# reset web terminal to new template
+$(wtoctl | grep 'oc delete')
+```
+
 Run with a git repo cloned locally (alternative)
 
 ```sh
