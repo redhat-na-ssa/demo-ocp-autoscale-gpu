@@ -1,0 +1,5 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  name: gpu-a10
+  namespace: openshift-machine-api

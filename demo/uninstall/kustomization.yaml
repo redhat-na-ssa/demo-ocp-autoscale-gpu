@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+components:
+  - ../../components/autoscale-gpu
+  - ../../components/branding
+  - ../../components/operators
+
+resources:
+  - devworkspace-sub.yaml
+  - gpu-a10-ms.yaml
+  - gpu-l4-ms.yaml
+  - openshift-terminal-ns.yaml
