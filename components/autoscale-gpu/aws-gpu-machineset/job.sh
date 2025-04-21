@@ -28,3 +28,6 @@ ocp_aws_machineset_fix_storage machineset/gpu-a10 400
 
 ocp_machineset_patch_accelerator gpu-l4 nvidia-l4
 ocp_machineset_patch_accelerator gpu-a10 nvidia-a10
+
+ocp_machineset_taint_gpu gpu-l4
+ocp_machineset_taint_gpu gpu-a10
