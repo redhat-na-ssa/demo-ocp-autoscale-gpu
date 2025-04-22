@@ -4,7 +4,7 @@ Show how to autoscale GPU resources in AWS using an OpenShift MachineSet
 
 ## Quickstart
 
-NOTE: If you have manually installed operators through the OpenShift web console before running this automation you may have duplicate operator groups.
+NOTE: If you have manually installed operators through the OpenShift web console before running this automation there may be duplicate operator groups.
 Remove any duplicate operator groups ending in `-xxxxx`
 
 Run directly from remote
