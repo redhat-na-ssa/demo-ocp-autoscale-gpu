@@ -10,7 +10,7 @@ Remove any duplicate operator groups ending in `-xxxxx`
 Run directly from remote
 
 ```sh
-until oc apply -k https://github.com/redhat-na-ssa/demo-ocp-autoscale-gpu/components; do : ; done
+until oc apply -k https://github.com/redhat-na-ssa/demo-ocp-autoscale-gpu/demo; do : ; done
 ```
 
 ```sh
@@ -21,7 +21,7 @@ $(wtoctl | grep 'oc delete')
 Run with a git repo cloned locally (alternative)
 
 ```sh
-until oc apply -k components; do : ; done
+until oc apply -k demo; do : ; done
 ```
 
 Query the status of the cluster autoscaler
