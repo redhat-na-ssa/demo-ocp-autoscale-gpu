@@ -1,22 +1,25 @@
 #!/bin/bash
 # shellcheck disable=SC2120
 
+create_file(){
 # See https://github.com/redhat-na-ssa/demo-ai-gitops-catalog
-# FUNCTIONS='
-# ocp_aws_cluster
-# ocp_aws_machineset_create_gpu
-# ocp_aws_machineset_clone_worker
-# ocp_aws_machineset_fix_storage
-# ocp_machineset_create_autoscale
-# ocp_machineset_patch_accelerator
-# ocp_machineset_taint_gpu
-# '
+  FUNCTIONS='
+  ocp_aws_cluster
+  ocp_aws_machineset_create_gpu
+  ocp_aws_machineset_clone_worker
+  ocp_aws_machineset_fix_storage
+  ocp_machineset_create_autoscale
+  ocp_machineset_patch_accelerator
+  ocp_machineset_taint_gpu
+  '
 
-# for function in ${FUNCTIONS}
-# do
-#   extract_function $function scripts/library/ocp*.sh >> tmp
-#   echo >> tmp
-# done
+  for function in ${FUNCTIONS}
+  do
+    function_extract $function scripts/library/ocp_aws.sh >> tmp
+    function_extract $function scripts/library/ocp.sh >> tmp
+    echo >> tmp
+  done
+}
 
 ocp_aws_cluster(){
   TARGET_NS=kube-system
@@ -36,6 +39,11 @@ ocp_aws_machineset_create_gpu(){
 
   # https://aws.amazon.com/ec2/instance-types/dl1
   # 8 x gaudi:  dl1.24xlarge
+
+  [ -z "${1}" ] && \
+  echo "
+    usage: ocp_aws_machineset_create_gpu < instance type, default g4dn.4xlarge >
+  "
 
   INSTANCE_TYPE=${1:-g4dn.4xlarge}
 
@@ -93,8 +101,10 @@ ocp_aws_machineset_clone_worker(){
     usage: ocp_aws_machineset_clone_worker < instance type, default g4dn.4xlarge > < machine set name >
   "
 
+  ocp_aws_cluster || return
+
   INSTANCE_TYPE=${1:-g4dn.4xlarge}
-  SHORT_NAME=${2:-${INSTANCE_TYPE/./-}}
+  SHORT_NAME=${2:-${INSTANCE_TYPE//./-}}
 
   MACHINE_SET_NAME=$(oc -n openshift-machine-api get machinesets.machine.openshift.io -o name | grep "${SHORT_NAME}" | head -n1)
   MACHINE_SET_WORKER=$(oc -n openshift-machine-api get machinesets.machine.openshift.io -o name | grep worker | head -n1)
@@ -167,18 +177,6 @@ YAML
   done
 }
 
-ocp_machineset_taint_gpu(){
-  SHORT_NAME=${1:-g4dn}
-  MACHINE_SET=$(oc -n openshift-machine-api get machinesets.machine.openshift.io -o name | grep "${SHORT_NAME}" | head -n1)
-
-  echo "Patching: ${MACHINE_SET}"
-
-  # taint nodes for gpu-only workloads
-  oc -n openshift-machine-api \
-    patch "${MACHINE_SET}" \
-    --type=merge --patch '{"spec":{"template":{"spec":{"taints":[{"key":"nvidia.com/gpu","value":"","effect":"NoSchedule"}]}}}}'
-}
-
 ocp_machineset_patch_accelerator(){
   MACHINE_SET_NAME=${1:-gpu}
   LABEL=${2:-nvidia-gpu}
@@ -190,4 +188,16 @@ ocp_machineset_patch_accelerator(){
   oc -n openshift-machine-api \
     patch machineset "${MACHINE_SET_NAME}" \
     --type=merge --patch '{"spec":{"template":{"spec":{"metadata":{"labels":{"node-role.kubernetes.io/gpu":""}}}}}}'
+}
+
+ocp_machineset_taint_gpu(){
+  SHORT_NAME=${1:-g4dn}
+  MACHINE_SET=$(oc -n openshift-machine-api get machinesets.machine.openshift.io -o name | grep "${SHORT_NAME}" | head -n1)
+
+  echo "Patching: ${MACHINE_SET}"
+
+  # taint nodes for gpu-only workloads
+  oc -n openshift-machine-api \
+    patch "${MACHINE_SET}" \
+    --type=merge --patch '{"spec":{"template":{"spec":{"taints":[{"key":"nvidia.com/gpu","value":"","effect":"NoSchedule"}]}}}}'
 }
