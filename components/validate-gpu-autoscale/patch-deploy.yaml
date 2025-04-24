@@ -1,0 +1,11 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nvidia-vector-add
+spec:
+  template:
+    spec:
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
