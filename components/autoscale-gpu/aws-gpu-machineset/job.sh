@@ -18,5 +18,5 @@ ocp_machineset_taint_gpu gpu-l4
 ocp_machineset_taint_gpu gpu-a10
 
 # unlabeled machine set
-ocp_aws_machineset_clone_worker g4dn.4xlarge gpu-keda
+ocp_aws_machineset_clone_worker g4dn.xlarge gpu-keda
 ocp_machineset_taint_gpu gpu-keda

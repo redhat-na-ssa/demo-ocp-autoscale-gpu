@@ -36,7 +36,7 @@ spec:
       threshold: '1'
       query: |
         # DEBUG
-        vector(1)
+        # vector(1)
 
         # sum(kube_pod_status_unschedulable) by (pod, namespace)
         # count by (namespace, pod) (kube_pod_status_unschedulable) and count by (namespace, pod) (kube_pod_resource_request{resource="nvidia.com/gpu"})
@@ -44,11 +44,11 @@ spec:
 
         # sum(kube_pod_resource_request{resource="nvidia.com/gpu"} >=1 ) by (pod, namespace)
 
-        # (
-        #   kube_pod_status_unschedulable
-        #     * on(namespace, pod) group_right(resource)
-        #   kube_pod_resource_request{resource="nvidia.com/gpu"}
-        # )
+        (
+          kube_pod_status_unschedulable
+            * on(namespace, pod) group_right(resource)
+          kube_pod_resource_request{resource="nvidia.com/gpu"}
+        )
       ignoreNullValues: 'false'
       # unsafeSsl: 'false'
   # - type: prometheus
