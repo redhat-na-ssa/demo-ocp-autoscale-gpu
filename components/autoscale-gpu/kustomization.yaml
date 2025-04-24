@@ -3,11 +3,8 @@ kind: Component
 
 components:
   - aws-gpu-machineset
+  - ms-autoscaler
+  - workload
 
 resources:
-  - a10-autoscaler.yaml
   - cluster-autoscaler.yaml
-  - cuda-a10.yaml
-  - cuda-l4.yaml
-  - l4-autoscaler.yaml
-  - namespace.yaml
