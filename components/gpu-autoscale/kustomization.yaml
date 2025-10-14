@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+components:
+  - ms-autoscaler
+  - ms-aws-gpu
+  - workload
+
+resources:
+  # https://github.com/redhat-na-ssa/demo-ai-gitops-catalog/raw/refs/tags/v0.19/components/cluster-configs/autoscale/base/autoscaling.yaml
+  - cluster-autoscaler.yaml
