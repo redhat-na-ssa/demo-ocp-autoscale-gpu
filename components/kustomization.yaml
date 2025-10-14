@@ -4,5 +4,6 @@ kind: Kustomization
 components:
   - branding
   - gpu-autoscale
+  - gpu-workload
   - operators
   # - validate-gpu-autoscale

@@ -1,5 +1,5 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
 
 resources:
   # oc kustomize https://github.com/redhat-na-ssa/demo-ai-gitops-catalog/components/operators/web-terminal/operator/overlays/fast?ref=v0.19
