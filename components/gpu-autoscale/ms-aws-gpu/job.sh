@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # shellcheck disable=SC1091
-. /scripts/ocp.sh
+. /scripts/functions.sh
 
 ocp_aws_cluster || exit 0
 

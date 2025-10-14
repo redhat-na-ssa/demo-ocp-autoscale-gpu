@@ -12,5 +12,5 @@ configMapGenerator:
     namespace: nvidia-gpu-operator
     files:
       - job.sh
-      - ocp.sh
+      - functions.sh
       # - https://raw.githubusercontent.com/redhat-na-ssa/demo-ai-gitops-catalog/main/scripts/library/ocp.sh
