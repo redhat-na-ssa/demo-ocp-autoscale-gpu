@@ -1,0 +1,50 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=true
+  name: github-demo-gitops
+spec:
+  applicationMenu:
+    imageURL: /static/assets/public/imgs/logos/github.svg
+    section: Git Repos
+  href: https://github.com/redhat-na-ssa/demo-ai-gitops-catalog
+  location: ApplicationMenu
+  text: GitHub - Demo GitOps Catalog
+---
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=true
+  name: github-ssa
+spec:
+  applicationMenu:
+    imageURL: /static/assets/public/imgs/logos/github.svg
+    section: Git Repos
+  href: https://github.com/redhat-na-ssa
+  location: ApplicationMenu
+  text: GitHub - NA SSA
+---
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=true
+  name: help-link
+spec:
+  href: https://github.com/redhat-na-ssa/demo-ai-gitops-catalog/issues
+  location: HelpMenu
+  text: Demo Catalog - Open Issue
+---
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=true
+  name: banner-cluster
+spec:
+  backgroundColor: '#0066FF'
+  color: '#FFF'
+  location: BannerBottom
+  text: This cluster was configured via the AI GitOps catalog
