@@ -17,11 +17,16 @@ spec:
           - |
             #!/bin/bash
 
+            [ -d "$HOME/bin" ] || mkdir "$HOME/bin"
+
             echo "
             GIT_REPO=https://github.com/redhat-na-ssa/demo-ocp-autoscale-gpus
+            GIT_PATH=demo
 
-            [ -e ~/demo-ocp-autoscale-gpus ] || git clone \${GIT_REPO}
-            [ -e ~/demo-ocp-autoscale-gpus ] && cd ~/demo-ocp-autoscale-gpus
+            [ -e ~/\${GIT_PATH} ] || git clone \${GIT_REPO} ~/\${GIT_PATH}
+            [ -e ~/\${GIT_PATH} ] && cd ~/\${GIT_PATH}
+
+            [ -d \"\${HOME}/bin\" ] && PATH=\${HOME}/bin:\${PATH}
 
             " >> /home/user/.bashrc
 
@@ -32,6 +37,7 @@ spec:
         cpuLimit: 400m
         cpuRequest: 100m
         image: ghcr.io/redhat-na-ssa/web-terminal-tooling:latest
+        # image: ghcr.io/redhat-na-ssa/web-terminal-tooling@sha256:a29868596b1ab7b56d28e142891a29d6ff9db72ee3d0249dac7c26d6602eadf8
         memoryLimit: 512Mi
         memoryRequest: 128Mi
         mountSources: false
