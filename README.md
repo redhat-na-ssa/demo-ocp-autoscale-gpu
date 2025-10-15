@@ -54,9 +54,6 @@ NOTE: The following commands are available in an enhanced web terminal.
 
 ## Quickstart
 
-NOTE: If you have manually installed operators through the OpenShift web console before running this automation there may be duplicate operator groups.
-Remove any duplicate operator groups ending in `-xxxxx`
-
 Run directly from remote
 
 ```sh
@@ -80,6 +77,16 @@ Reset the web terminal
 
 ```sh
 oc apply -k components/operators/web-terminal/reset-default
+```
+
+## Known Issues
+
+NOTE: If you have manually installed operators through the OpenShift web console before running this automation there may be duplicate operator groups.
+
+Manually Remove any duplicate operator groups ending in `-xxxxx` or use the following command in the enhanced web terminal.
+
+```sh
+ocp_fix_duplicate_operator_groups
 ```
 
 ## Manual Steps
