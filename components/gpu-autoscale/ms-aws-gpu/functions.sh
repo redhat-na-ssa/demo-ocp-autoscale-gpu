@@ -1,6 +1,12 @@
 #!/bin/bash
 # shellcheck disable=SC2120
 
+ocp_pods_delete_failed(){
+  oc delete pods \
+    --field-selector status.phase=Failed \
+    --all-namespaces
+}
+
 ocp_aws_cluster(){
   TARGET_NS=kube-system
   OBJ=secret/aws-creds

@@ -7,6 +7,7 @@ create_file(){
   FILENAME=${1:-functions.sh}
 
   FUNCTIONS='
+  ocp_pods_delete_failed
   ocp_aws_cluster
   ocp_aws_machineset_create_gpu
   ocp_aws_machineset_clone_worker
