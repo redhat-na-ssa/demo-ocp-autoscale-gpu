@@ -23,9 +23,9 @@ spec:
       - type: nvidia-a10
         min: 0
         max: 4
-      - type: amd.com/gpu
-        min: 0
-        max: 1
+      # - type: amd.com/gpu
+      #   min: 0
+      #   max: 1
   scaleDown:
     enabled: true
     delayAfterAdd: 5m
