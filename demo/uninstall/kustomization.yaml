@@ -3,6 +3,7 @@ kind: Kustomization
 
 components:
   - ../../components/gpu-autoscale
+  - ../../components/gpu-workload
   - ../../components/branding
   - ../../components/operators
 
