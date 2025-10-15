@@ -1,13 +1,24 @@
 # Demo OpenShift autoscaling with gpu machine sets
 
-Show how to autoscale GPU resources in AWS using an OpenShift MachineSet
+Show how to autoscale GPU resources on OpenShift in AWS using the following...
+
+Objects:
+
+- `MachineSet`
+- `MachineSetAutoScaler`
+- `ClusterAutoscaler`
+
+Operators:
+
+- [Node Feature Discovery Operator (NFD)](components/operators/nfd)
+- [NVIDIA GPU Operator](components/operators/nvidia-gpu)
 
 ## Prerequisites - Get a cluster
 
 - OpenShift 4.16+
   - role: `cluster-admin`
 
-[Red Hat Demo Platform](https://demo.redhat.com) Options (Tested)
+[Red Hat Demo Platform](https://demo.redhat.com) - Options (Tested) Below
 
 NOTE: The node sizes below are the **recommended minimum** to select for provisioning
 
