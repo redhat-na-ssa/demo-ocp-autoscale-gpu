@@ -61,7 +61,7 @@ oc -n openshift-machine-api \
 
 ## Manual Steps
 
-[Manual steps for configuring a machineset for GPUs](components/autoscale-gpu/README.md)
+[Manual steps for configuring a machineset for GPUs](components/gpu-autoscale/README.md)
 
 ## Links
 
