@@ -4,4 +4,4 @@ kind: Component
 components:
   - nfd
   - nvidia-gpu
-  - web-terminal
+  # - web-terminal
