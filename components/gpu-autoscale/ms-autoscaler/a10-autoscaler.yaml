@@ -1,7 +1,7 @@
 apiVersion: autoscaling.openshift.io/v1beta1
 kind: MachineAutoscaler
 metadata:
-  name: gpu-a10-autoscaler
+  name: gpu-a10
   namespace: openshift-machine-api
 spec:
   minReplicas: 0
