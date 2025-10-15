@@ -59,6 +59,18 @@ oc -n openshift-machine-api \
   describe cm cluster-autoscaler-status
 ```
 
+## Uninstall
+
+```sh
+oc delete -k demo/uninstall
+```
+
+Reset the web terminal
+
+```sh
+oc apply -k components/operators/web-terminal/reset-default
+```
+
 ## Manual Steps
 
 [Manual steps for configuring a machineset for GPUs](components/gpu-autoscale/README.md)
