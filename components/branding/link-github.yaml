@@ -3,7 +3,7 @@ kind: ConsoleLink
 metadata:
   name: github-demo-ocp-autoscale-gpus
 spec:
-  href: 'https://github.com/redhat-na-ssa/demo-ocp-autoscale-gpus'
+  href: 'https://github.com/redhat-na-ssa/demo-ocp-autoscale-gpu'
   location: ApplicationMenu
   text: GitHub - Demo Autoscale Nvidia GPUs
   applicationMenu:
