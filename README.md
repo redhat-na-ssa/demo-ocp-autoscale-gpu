@@ -62,3 +62,7 @@ oc -n openshift-machine-api \
 ## Manual Steps
 
 [Manual steps for configuring a machineset for GPUs](components/autoscale-gpu/README.md)
+
+## Links
+
+- [OpenShift Docs - Autoscaling](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/machine_management/applying-autoscaling)
